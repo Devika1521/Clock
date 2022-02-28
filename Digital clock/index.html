@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and time</title>
+</head>
+<body>
+    <div class="container">
+        <h1><i>Digital Clock </i></h1><br><BR>
+        <p id="p1"></p><br><br><br>
+        <div class="container2">
+        <button id="button1" onclick="start()">START</button>
+        <button id="button2" onclick="stop()">STOP</button>
+    </div>
+    </div>
+    <script>
+       
+        function changeColor(){
+            date=new Date();
+            Hours=date.getHours();
+            Minutes=date.getMinutes();
+            Seconds=date.getSeconds();
+            timing=date.toLocaleTimeString();
+            x=document.getElementById("p1");
+            x.innerHTML=timing;
+           if(Seconds %2==0){
+               x.style.color="red";
+           }
+           else{
+               x.style.color="white";
+           }
+        
+        }  //  changeColor();
+        
+        function start(){
+          clr= setInterval(changeColor,1);
+        }
+        function stop(){
+            clearInterval(clr);
+        }
+    </script>
+</body>
+
+</html>
